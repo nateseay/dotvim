@@ -26,3 +26,31 @@ if has('gui_running')
     source ~/.gvimrc.after
   endif
 end
+
+"Nates modifications
+set modeline
+set autochdir
+colorscheme vividchalk
+highlight OverLength ctermbg=darkred ctermfg=white guibg=darkred
+match OverLength /\%>80v.\+/
+
+set list listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:×
+
+""indent guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#070707 ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#141414 ctermbg=4
+
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
+set modeline
+
+"Disable nerdtree tabs on startup"
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_console_startup = 0
+"
